@@ -1,0 +1,52 @@
+light.bureau_quentin:
+   icon: mdi:floor-lamp
+light.coin_salon:
+   icon: mdi:floor-lamp
+light.hall_d_entree:
+   icon: mdi:floor-lamp
+light.ambiance_lit:
+   icon: mdi:lamp
+light.guirlande_salon:
+   icon: mdi:string-lights
+light.ambiance_meuble_mt:
+   icon: mdi:lamp
+light.petite_lampe:
+   icon: mdi:lamp
+light.bureau_pao:
+   icon: mdi:desk-lamp
+light.hall:
+  icon: mdi:ceiling-light
+light.table_salon:
+  icon: mdi:ceiling-light
+light.cuisine:
+  icon: mdi:ceiling-light
+light.chambre_pao_qt:
+  icon: mdi:ceiling-light
+light.salle_de_bain:
+  icon: mdi:ceiling-light
+light.bureau:
+  icon: mdi:ceiling-light
+light.couloir:
+  icon: mdi:ceiling-light
+light.chambre:
+  icon: mdi:ceiling-light
+light.salon:
+  icon: mdi:ceiling-light
+light.table_a_manger:
+  icon: mdi:ceiling-light
+light.local_technique:
+  icon: mdi:ceiling-light
+light.SalleDeBain:
+  icon: mdi:ceiling-light
+light.toilette:
+  icon: mdi:ceiling-light
+climate.bureau:
+  icon: mdi:thermometer
+climate.chambre:
+  icon: mdi:thermometer
+climate.salon:
+  icon: mdi:thermometer
+climate.salle_de_douche:
+  icon: mdi:thermometer
+sensor.roborock_surface_cleaned:
+  friendly_name: "Surface nettoyée"

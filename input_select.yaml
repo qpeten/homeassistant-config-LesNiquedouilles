@@ -1,0 +1,42 @@
+reveil:
+  name: "Réveil"
+  options:
+    - Désactivé
+    - 6h00
+    - 6h15
+    - 6h30
+    - 6h45
+    - 7h00
+    - 7h15
+    - 7h30
+    - 7h45
+    - 8h00
+    - 8h30
+    - 9h00
+  icon: mdi:alarm
+  initial : Désactivé
+scene_salon:
+  name: "Scène salon"
+  options:
+    - Normal
+    - Party
+    - Manual
+  initial: Normal
+aspirateur_robot_salon_status:
+  name: "État"
+  options:
+    - Base
+    - Vider bac
+    - Nettoyer tout
+    - Nettoyer table manger
+    - Nettoyer cuisine
+  initial: Base
+  icon: mdi:robot-vacuum
+mode_presence:
+  name: Présence
+  options:
+    - "Normal"
+    - "Invités dormir"
+    - "Vacances"
+    - "Week-end"
+  icon: mdi:account-multiple

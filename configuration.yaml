@@ -1,0 +1,59 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: "Les Niquedouilles"
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Brussels
+  # Customization file
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+#  base_url: http://homeassistant.loki.lameilleurecolloc.duckdns.org
+  trusted_proxies:
+    - 172.18.0.1
+    - 172.18.0.2
+    - 172.18.0.3
+    - 172.18.0.4
+    - 172.18.0.5
+  use_x_forwarded_for: true
+
+mqtt:
+  discovery: true
+  broker: mosquitto
+# Discover some devices automatically
+#discovery:
+
+# Text to speech
+#tts:
+#  - platform: google
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+light: !include lights.yaml
+switch: !include switches.yaml
+input_select: !include input_select.yaml
+sensor: !include sensor.yaml
+climate: !include climate.yaml
+cover: !include cover.yaml
+binary_sensor: !include binary_sensor.yaml
+
+#dyson:
+#  username: qpetenpub@protonmail.com
+#  password: "!cordd698"
+#  language: BE
+#  devices:
+#    - device_id: "PT4-EU-MKA2051A"
+#      device_ip: "10.0.10.99"
+
+influxdb:
+        host: influxdb
+        database: homeassistant
+        username: homeassistant
+        password: 'klqsdfjkeuijklJKLHDUZJKLHOPAZIOSJNVJKQiudjkqsdh71638904298jksdhqjk'
+        #        password: 'klqsdhkDUIDJKLJKLdhziludhdfjk78136908372JKDHSL'

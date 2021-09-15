@@ -1,0 +1,53 @@
+- platform: mqtt
+  name: "Bureau"
+  modes:
+    - "auto"
+  current_temperature_topic: "/unipi/stat/bureau/temperature"
+  temperature_state_topic: "/jarvis/stat/bureau/setpoint"
+  temperature_command_topic: "/jarvis/cmnd/bureau/setpoint"
+  mode_state_topic: "/jarvis/stat/bureau/climate_mode"
+  max_temp: 23
+  min_temp: 15
+  temp_step: 0.5
+  retain: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Chambre"
+  modes:
+    - "auto"
+    - "off"
+  current_temperature_topic: "/unipi/stat/chambre/temperature"
+  temperature_state_topic: "/jarvis/stat/chambre/setpoint"
+  temperature_command_topic: "/jarvis/cmnd/chambre/setpoint"
+  mode_state_topic: "/jarvis/stat/chambre/climate_mode"
+  max_temp: 23
+  min_temp: 15
+  temp_step: 0.5
+  retain: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Salon"
+  modes:
+    - "auto"
+  current_temperature_topic: "/unipi/stat/salon/temperature"
+  temperature_state_topic: "/jarvis/stat/salon/setpoint"
+  temperature_command_topic: "/jarvis/cmnd/salon/setpoint"
+  mode_state_topic: "/jarvis/stat/salon/climate_mode"
+  max_temp: 23
+  min_temp: 15
+  temp_step: 0.5
+  retain: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Salle de Douche"
+  modes:
+    - "auto"
+  current_temperature_topic: "/unipi/stat/SalleDeBain/temperature"
+  temperature_state_topic: "/jarvis/stat/SalleDeBain/setpoint"
+  temperature_command_topic: "/jarvis/cmnd/SalleDeBain/setpoint"
+  mode_state_topic: "/jarvis/stat/SalleDeBain/climate_mode"
+  max_temp: 23
+  min_temp: 15
+  temp_step: 0.5
+  retain: true
+  availability_topic: /unipi/tele/LWT

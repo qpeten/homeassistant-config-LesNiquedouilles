@@ -1,0 +1,47 @@
+- platform: mqtt
+  name: "Thor"
+  command_topic : "/jarvis/cmnd/localTechnique/thor/POWER"
+  state_topic : "/jarvis/stat/localTechnique/thor/POWER"
+  availability_topic: "/jarvis/out/state/rez/salon/rpi-salonaudio/LWT"
+  payload_available: "online"
+  payload_not_available: "offline"
+  icon: mdi:server
+- platform: mqtt
+  name: "Ampli"
+  command_topic : "/sonoff/cmnd/salon/ampli/POWER"
+  state_topic : "/sonoff/stat/salon/ampli/POWER"
+  availability_topic: "/sonoff/tele/salon/ampli/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  icon: mdi:music
+- platform: mqtt
+  name: "Déshumidificateur salon"
+  command_topic : "/sonoff/cmnd/salon/deshumidificateur/POWER"
+  state_topic : "/sonoff/stat/salon/deshumidificateur/POWER"
+  icon: mdi:air-humidifier
+- platform: mqtt
+  name: "Boiler"
+  command_topic : "/unipi/cmnd/localTechnique/boiler/POWER"
+  state_topic : "/unipi/stat/localTechnique/boiler/POWER"
+  retain: true
+  icon: mdi:water-boiler
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Chauffage Salon"
+  command_topic: "/unipi/cmnd/salon/chauffageElec/POWER"
+  state_topic: "/unipi/stat/salon/chauffageElec/POWER"
+  retain: true
+  icon: mdi:fire
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Chauffage Bureau"
+  command_topic: "/unipi/cmnd/bureau/chauffageElec/POWER"
+  state_topic: "/unipi/stat/bureau/chauffageElec/POWER"
+  retain: true
+  icon: mdi:fire
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Grasse mat'"
+  command_topic: "/jarvis/cmnd/chambre/grasseMatinee/STATUS"
+  state_topic: "/jarvis/stat/chambre/grasseMatinee/STATUS"
+  icon: mdi:alarm-check

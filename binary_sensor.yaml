@@ -1,0 +1,114 @@
+- platform: mqtt
+  name: "Presence Quentin"
+  state_topic: "/jarvis/binary_sensor/other/Presence_Quentin_Unifi"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Paola"
+  state_topic: "/jarvis/binary_sensor/other/Presence_Paola_Unifi"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Anyone"
+  state_topic: "/jarvis/binary_sensor/other/Presence_Anyone"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Bureau"
+  state_topic: "/jarvis/binary_sensor/bureau/Presence_Bureau"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Chambre"
+  state_topic: "/jarvis/binary_sensor/chambre/Presence_Chambre"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Couloir"
+  state_topic: "/jarvis/binary_sensor/couloir/Presence_Couloir"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Hall"
+  state_topic: "/jarvis/binary_sensor/hall/Presence_Hall"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Salon"
+  state_topic: "/jarvis/binary_sensor/salon/Presence_Salon"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Cuisine"
+  state_topic: "/jarvis/binary_sensor/cuisine/Presence_Cuisine"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Toilette"
+  state_topic: "/jarvis/binary_sensor/toilette/Presence_Toilette"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Salle de Bain"
+  state_topic: "/jarvis/binary_sensor/SalleDeBain/Presence_SalleDeBain"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Nuit"
+  state_topic: "/jarvis/binary_sensor/other/night"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Porte local technique"
+  state_topic: "/unipi/stat/localTechnique/doorSensor/STATE"
+  device_class: "door"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Porte chambre"
+  state_topic: "/unipi/stat/chambre/doorSensor/STATE"
+  device_class: "door"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Porte entrée"
+  state_topic: "/unipi/stat/hall/doorSensor/STATE"
+  device_class: "door"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Porte bureau"
+  state_topic: "/unipi/stat/bureau/doorSensor/STATE"
+  device_class: "door"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Porte salon"
+  state_topic: "/unipi/stat/salon/doorSensor/STATE"
+  device_class: "door"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Porte toilette"
+  state_topic: "/unipi/stat/toilette/doorSensor/STATE"
+  device_class: "door"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Porte Salle de Bain"
+  state_topic: "/unipi/stat/SalleDeBain/doorSensor/STATE"
+  device_class: "door"
+  force_update: true
+  availability_topic: /unipi/tele/LWT

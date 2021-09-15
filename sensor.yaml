@@ -1,0 +1,40 @@
+- platform: mqtt
+  name: roborock_surface_cleaned
+  state_topic: rockrobo/osvaldo/attributes
+  unit_of_measurement: "m²"
+  icon: mdi:robot-vacuum
+  value_template: "{{value_json.cleanArea}}"
+- platform: mqtt
+  name: roborock_battery
+  state_topic: rockrobo/osvaldo/state
+  unit_of_measurement: "%"
+  value_template: "{{value_json.battery_level}}"
+  device_class: battery
+- platform: mqtt
+  name: "Humidité bureau"
+  unit_of_measurement: "%"
+  state_topic: "/unipi/stat/bureau/humidity"
+  expire_after: 1800
+  availability_topic: /unipi/tele/LWT
+  device_class: humidity
+- platform: mqtt
+  name: "Humidité salon"
+  unit_of_measurement: "%"
+  state_topic: "/unipi/stat/salon/humidity"
+  expire_after: 1800
+  availability_topic: /unipi/tele/LWT
+  device_class: humidity
+- platform: mqtt
+  name: "Humidité chambre"
+  unit_of_measurement: "%"
+  state_topic: "/unipi/stat/chambre/humidity"
+  expire_after: 1800
+  availability_topic: /unipi/tele/LWT
+  device_class: humidity
+- platform: mqtt
+  name: "Luminosité extérieure"
+  unit_of_measurement: "Lux"
+  state_topic: "/unipi/stat/cuisine/luminosity/STATE"
+  expire_after: 1800
+  availability_topic: /unipi/tele/LWT
+  device_class: illuminance

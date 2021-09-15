@@ -1,0 +1,141 @@
+- alias: mode presence out
+  trigger:
+  - entity_id: input_select.mode_presence
+    platform: state
+  action:
+  - data_template:
+      payload: '{{ states(''input_select.mode_presence'') }}'
+      retain: true
+      topic: /jarvis/cmnd/special/mode_presence
+    service: mqtt.publish
+
+- alias: Mode presence in
+  trigger:
+  - platform: mqtt
+    topic: /jarvis/cmnd/special/mode_presence
+  action:
+  - data_template:
+      entity_id: input_select.mode_presence
+      option: '{{ trigger.payload }}'
+    service: input_select.select_option
+
+- alias: mqtt_in_reveil_set_time
+  initial_state: 'on'
+  trigger:
+    platform: mqtt
+    topic: "/jarvis/rez/chambre/reveil/state/TIME"
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.reveil
+      option: "{{ trigger.payload }}"
+- alias: mqtt_out_reveil_set_time
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.reveil
+  action:
+    service: mqtt.publish
+    data_template:
+      retain: true
+      topic: "/jarvis/rez/chambre/reveil/cmnd/TIME"
+      payload: "{{ states('input_select.reveil') }}"
+
+
+- alias: mqtt_in_scene_salon_set_time
+  initial_state: 'on'
+  trigger:
+    platform: mqtt
+    topic: "/jarvis/rez/salon/scene_salon/state/SCENE"
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.scene_salon
+      option: "{{ trigger.payload }}"
+- alias: mqtt_out_scene_salon_set_time
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.scene_salon
+  action:
+    service: mqtt.publish
+    data_template:
+      retain: false
+      topic: "/jarvis/rez/salon/scene_salon/cmnd/SCENE"
+      payload: "{{ states('input_select.scene_salon') }}"
+
+
+- alias: mqtt_in_aspirateur_robot_salon_status
+  initial_state: 'on'
+  trigger:
+    platform: mqtt
+    topic: "rockrobo/osvaldo/attributes"
+  condition:
+    condition: 'template'
+    value_template: '{{ trigger.payload_json.valetudo_state.name == "Charging" }}'
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.aspirateur_robot_salon_status
+      option: Base
+- alias: mqtt_in_aspirateur_robot_salon_status
+  initial_state: 'on'
+  trigger:
+    platform: mqtt
+    topic: "rockrobo/osvaldo/attributes"
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.valetudo_state.name == "Cleaning" }}'
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.aspirateur_robot_salon_status
+      option: Nettoyer tout
+- alias: mqtt_in_aspirateur_robot_salon_status
+  initial_state: 'on'
+  trigger:
+    platform: mqtt
+    topic: "rockrobo/osvaldo/attributes"
+  condition:
+    condition: template
+    value_template: '{{ trigger.payload_json.valetudo_state.name == "Going to target" }}'
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.aspirateur_robot_salon_status
+      option: Vider bac
+
+- alias: mqtt_out_aspirateur_robot_salon_satus
+  initial_state: 'on'
+  trigger: 
+    platform: state
+    entity_id: input_select.aspirateur_robot_salon_status
+  action:
+    service: mqtt.publish
+    data_template:
+      retain: false
+      topic: "rockrobo/osvaldo/command"
+      payload: >
+          {% if is_state('input_select.aspirateur_robot_salon_status','Base') %}
+            return_to_base
+          {% elif is_state('input_select.aspirateur_robot_salon_status','Nettoyer tout') %}
+            start
+          {% endif %}
+- alias: mqtt_out_aspirateur_robot_salon_satus
+  initial_state: 'on'
+  trigger: 
+    platform: state
+    entity_id: input_select.aspirateur_robot_salon_status
+  action:
+    service: mqtt.publish
+    data_template:
+      retain: false
+      topic: "rockrobo/osvaldo/custom_command"
+      payload: >
+          {% if is_state('input_select.aspirateur_robot_salon_status','Vider bac') %}
+            {"command":"go_to","spot_id":"Poubelle"}
+          {% elif is_state('input_select.aspirateur_robot_salon_status','Nettoyer table manger') %}
+            {"command":"zoned_cleanup","zone_ids":["Table a manger"]}
+          {% elif is_state('input_select.aspirateur_robot_salon_status','Nettoyer cuisine') %}
+            {"command":"zoned_cleanup","zone_ids":["Cuisine"]}
+          {% endif %}

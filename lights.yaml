@@ -1,0 +1,140 @@
+- platform: mqtt
+  name : "Ambiance lit"
+  schema: json
+  retain: true
+  command_topic: "/jarvis/in/cmnd/lifx/rez/chambre/LifxAmbianceLit/SET"
+  state_topic: "/jarvis/out/state/lifx/rez/chambre/LifxAmbianceLit"
+  brightness_scale: 100
+  brightness: true
+  hs: true
+  color_temp: true
+  #  availability_topic: "/jarvis/out/state/lifx/rez/chambre/LifxAmbianceLit/LWT"
+- platform: mqtt
+  schema: json
+  name : "Coin salon"
+  retain: true
+  command_topic: "/jarvis/in/cmnd/lifx/rez/salon/LifxCoinSalon/SET"
+  state_topic: "/jarvis/out/state/lifx/rez/salon/LifxCoinSalon"
+  brightness_scale: 100
+  brightness: true
+  hs: true
+  color_temp: true
+  #  availability_topic: "/jarvis/out/state/lifx/rez/salon/LifxCoinSalon/LWT"
+- platform: mqtt
+  name : "Hall d'entrée"
+  schema: json
+  retain: true
+  command_topic: "/jarvis/in/cmnd/lifx/hall/LifxHall/SET"
+  state_topic: "/jarvis/out/state/lifx/hall/LifxHall"
+  brightness_scale: 100
+  brightness: true
+  hs: true
+  color_temp: true
+  #  availability_topic: "/jarvis/out/state/lifx/rez/salon/LifxBureau/LWT"
+- platform: mqtt
+  name : "Guirlande salon"
+  command_topic: "/sonoff/cmnd/salon/guirlande-meuble-matthieu/POWER"
+  state_topic: "/sonoff/stat/salon/guirlande-meuble-matthieu/POWER"
+  availability_topic: "/sonoff/tele/salon/guirlande-meuble-matthieu/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- platform: mqtt
+  name : "Ambiance meuble Mt"
+  command_topic: "/sonoff/cmnd/salon/lumiere-meuble-matthieu/POWER"
+  state_topic: "/sonoff/stat/salon/lumiere-meuble-matthieu/POWER"
+  availability_topic: "/sonoff/tele/salon/lumiere-meuble-matthieu/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- platform: mqtt
+  name : "Petite lampe"
+  command_topic: "/sonoff/cmnd/salon/petite-lampe/POWER"
+  state_topic: "/sonoff/stat/salon/petite-lampe/POWER"
+  availability_topic: "/sonoff/tele/salon/petite-lampe/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- platform: mqtt
+  name : "Liseuse Qt"
+  command_topic: "/sonoff/cmnd/chambre/rez-chambre-lumLitQt/POWER"
+  state_topic: "/sonoff/stat/chambre/rez-chambre-lumLitQt/POWER"
+  availability_topic: "/sonoff/tele/chambre/rez-chambre-lumLitQt/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- platform: mqtt
+  name : "Bureau Pao"
+  command_topic: "/sonoff/cmnd/bureau/lampePaola/POWER"
+  state_topic: "/sonoff/stat/bureau/lampePaola/POWER"
+  availability_topic: "/sonoff/tele/bureau/lampePaola/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- platform: mqtt
+  name : "Hall"
+  state_topic: "/unipi/stat/hall/ceilingLight/POWER"
+  command_topic: "/unipi/cmnd/hall/ceilingLight/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Bureau"
+  state_topic: "/unipi/stat/bureau/ceilingLight/POWER"
+  command_topic: "/unipi/cmnd/bureau/ceilingLight/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Chambre"
+  state_topic: "/unipi/stat/chambre/ceilingLight/POWER"
+  command_topic: "/unipi/cmnd/chambre/ceilingLight/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Couloir"
+  state_topic: "/unipi/stat/couloir/ceilingLight/POWER"
+  command_topic: "/unipi/cmnd/couloir/ceilingLight/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Cuisine"
+  state_topic: "/unipi/stat/cuisine/ceilingLight/POWER"
+  command_topic: "/unipi/cmnd/cuisine/ceilingLight/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Salon"
+  state_topic: "/unipi/stat/salon/ceilingLight1/POWER"
+  command_topic: "/unipi/cmnd/salon/ceilingLight1/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Table à manger"
+  state_topic: "/unipi/stat/salon/ceilingLight2/POWER"
+  command_topic: "/unipi/cmnd/salon/ceilingLight2/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Local technique"
+  state_topic: "/unipi/stat/localTechnique/ceilingLight/POWER"
+  command_topic: "/unipi/cmnd/localTechnique/ceilingLight/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Toilette"
+  state_topic: "/unipi/stat/toilette/ceilingLight/POWER"
+  command_topic: "/unipi/cmnd/toilette/ceilingLight/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Salle de bain"
+  state_topic: "/unipi/stat/SalleDeBain/ceilingLight/POWER"
+  command_topic: "/unipi/cmnd/SalleDeBain/ceilingLight/POWER"
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name : "Plan travail cuisine"
+  brightness_command_topic: "/sonoff/cmnd/localTechnique/shelly-rgbw2-tabelec/Channel1"
+  command_topic: "/sonoff/cmnd/localTechnique/shelly-rgbw2-tabelec/POWER1"
+  state_topic: "/sonoff/stat/localTechnique/shelly-rgbw2-tabelec/POWER1"
+  brightness_scale: 100
+  brightness_state_topic: "/sonoff/stat/localTechnique/shelly-rgbw2-tabelec/RESULT"
+  brightness_value_template: "{{ value_json.Channel1 }}"
+  availability_topic: "/sonoff/tele/localTechnique/shelly-rgbw2-tabelec/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- platform: mqtt
+  name : "Penderie"
+  brightness_command_topic: "/sonoff/cmnd/localTechnique/shelly-rgbw2-tabelec/Channel2"
+  command_topic: "/sonoff/cmnd/localTechnique/shelly-rgbw2-tabelec/POWER2"
+  state_topic: "/sonoff/stat/localTechnique/shelly-rgbw2-tabelec/POWER2"
+  brightness_scale: 100
+  brightness_state_topic: "/sonoff/stat/localTechnique/shelly-rgbw2-tabelec/RESULT"
+  brightness_value_template: "{{ value_json.Channel2 }}"
+  availability_topic: "/sonoff/tele/localTechnique/shelly-rgbw2-tabelec/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
