@@ -23,6 +23,18 @@
   force_update: true
   availability_topic: /unipi/tele/LWT
 - platform: mqtt
+  name: "Presence Bureau Paola"
+  state_topic: "/jarvis/binary_sensor/bureau/Presence_Bureau_Paola"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Bureau Quentin"
+  state_topic: "/jarvis/binary_sensor/bureau/Presence_Bureau_Quentin"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /unipi/tele/LWT
+- platform: mqtt
   name: "Presence Chambre"
   state_topic: "/jarvis/binary_sensor/chambre/Presence_Chambre"
   device_class: "presence"

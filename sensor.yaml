@@ -32,6 +32,13 @@
   availability_topic: /unipi/tele/LWT
   device_class: humidity
 - platform: mqtt
+  name: "Humidité Salle de Douche"
+  unit_of_measurement: "%"
+  state_topic: "/unipi/stat/SalleDeBain/humidity"
+  expire_after: 1800
+  availability_topic: /unipi/tele/LWT
+  device_class: humidity
+- platform: mqtt
   name: "Luminosité extérieure"
   unit_of_measurement: "Lux"
   state_topic: "/unipi/stat/cuisine/luminosity/STATE"
