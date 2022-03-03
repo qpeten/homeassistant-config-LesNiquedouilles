@@ -65,63 +65,63 @@
       payload: "{{ states('input_select.scene_salon') }}"
 
 
-- alias: mqtt_in_aspirateur_robot_salon_status
+- alias: mqtt_in_aspirateur_robot_salon_status_docked
   initial_state: 'on'
   trigger:
     platform: mqtt
-    topic: "rockrobo/osvaldo/attributes"
+    topic: "valetudo/osvaldo/StatusStateAttribute/status"
   condition:
     condition: 'template'
-    value_template: '{{ trigger.payload_json.valetudo_state.name == "Charging" }}'
+    value_template: '{{ trigger.payload == "docked" }}'
   action:
     service: input_select.select_option
     data_template:
       entity_id: input_select.aspirateur_robot_salon_status
       option: Base
-- alias: mqtt_in_aspirateur_robot_salon_status
+- alias: mqtt_in_aspirateur_robot_salon_status_cleaning
   initial_state: 'on'
   trigger:
     platform: mqtt
-    topic: "rockrobo/osvaldo/attributes"
+    topic: "valetudo/osvaldo/StatusStateAttribute/status"
   condition:
     condition: template
-    value_template: '{{ trigger.payload_json.valetudo_state.name == "Cleaning" }}'
+    value_template: '{{ trigger.payload == "cleaning" }}'
   action:
     service: input_select.select_option
     data_template:
       entity_id: input_select.aspirateur_robot_salon_status
       option: Nettoyer tout
-- alias: mqtt_in_aspirateur_robot_salon_status
+- alias: mqtt_in_aspirateur_robot_salon_status_moving
   initial_state: 'on'
   trigger:
     platform: mqtt
-    topic: "rockrobo/osvaldo/attributes"
+    topic: "valetudo/osvaldo/StatusStateAttribute/status"
   condition:
     condition: template
-    value_template: '{{ trigger.payload_json.valetudo_state.name == "Going to target" }}'
+    value_template: '{{ trigger.payload == "moving" }}'
   action:
     service: input_select.select_option
     data_template:
       entity_id: input_select.aspirateur_robot_salon_status
       option: Vider bac
 
-- alias: mqtt_out_aspirateur_robot_salon_satus
+- alias: mqtt_out_aspirateur_robot_salon_satus_basic_control
   initial_state: 'on'
-  trigger: 
+  trigger:
     platform: state
     entity_id: input_select.aspirateur_robot_salon_status
   action:
     service: mqtt.publish
     data_template:
       retain: false
-      topic: "rockrobo/osvaldo/command"
+      topic: "valetudo/osvaldo/BasicControlCapability/operation/set"
       payload: >
           {% if is_state('input_select.aspirateur_robot_salon_status','Base') %}
-            return_to_base
+            HOME
           {% elif is_state('input_select.aspirateur_robot_salon_status','Nettoyer tout') %}
-            start
+            START
           {% endif %}
-- alias: mqtt_out_aspirateur_robot_salon_satus
+- alias: mqtt_out_aspirateur_robot_salon_status_map_segment
   initial_state: 'on'
   trigger: 
     platform: state
@@ -130,12 +130,38 @@
     service: mqtt.publish
     data_template:
       retain: false
-      topic: "rockrobo/osvaldo/custom_command"
+      topic: "valetudo/osvaldo/MapSegmentationCapability/clean/set"
+      payload: >
+          {% if is_state('input_select.aspirateur_robot_salon_status','Nettoyer couloir') %}
+            {"action": "start_segment_action","segment_ids": ["17","21","20"],"iterations": 1,"customOrder": true}
+          {% elif is_state('input_select.aspirateur_robot_salon_status','Nettoyer cuisine') %}
+            {"action": "start_segment_action","segment_ids": ["22"],"iterations": 1,"customOrder": true}
+          {% endif %}
+- alias: mqtt_out_aspirateur_robot_salon_status_location
+  initial_state: 'on'
+  trigger: 
+    platform: state
+    entity_id: input_select.aspirateur_robot_salon_status
+  action:
+    service: mqtt.publish
+    data_template:
+      retain: false
+      topic: "valetudo/osvaldo/GoToLocationCapability/go/set"
       payload: >
           {% if is_state('input_select.aspirateur_robot_salon_status','Vider bac') %}
-            {"command":"go_to","spot_id":"Poubelle"}
-          {% elif is_state('input_select.aspirateur_robot_salon_status','Nettoyer table manger') %}
-            {"command":"zoned_cleanup","zone_ids":["Table a manger"]}
-          {% elif is_state('input_select.aspirateur_robot_salon_status','Nettoyer cuisine') %}
-            {"command":"zoned_cleanup","zone_ids":["Cuisine"]}
+            2f32601e-82e3-45e5-a319-4451f9a69047
+          {% endif %}
+- alias: mqtt_out_aspirateur_robot_salon_status_zones
+  initial_state: 'on'
+  trigger: 
+    platform: state
+    entity_id: input_select.aspirateur_robot_salon_status
+  action:
+    service: mqtt.publish
+    data_template:
+      retain: false
+      topic: "valetudo/osvaldo/ZoneCleaningCapability/start/set"
+      payload: >
+          {% if is_state('input_select.aspirateur_robot_salon_status','Nettoyer table manger') %}
+            4a79e0c6-cc84-4b9a-bfdb-7ad601f69d29
           {% endif %}

@@ -46,8 +46,8 @@
   temperature_state_topic: "/jarvis/stat/SalleDeBain/setpoint"
   temperature_command_topic: "/jarvis/cmnd/SalleDeBain/setpoint"
   mode_state_topic: "/jarvis/stat/SalleDeBain/climate_mode"
-  max_temp: 23
+  max_temp: 25
   min_temp: 15
-  temp_step: 0.5
+  temp_step: 1
   retain: true
   availability_topic: /unipi/tele/LWT

@@ -2,7 +2,6 @@
   name: "Thor"
   command_topic : "/jarvis/cmnd/localTechnique/thor/POWER"
   state_topic : "/jarvis/stat/localTechnique/thor/POWER"
-  availability_topic: "/jarvis/out/state/rez/salon/rpi-salonaudio/LWT"
   payload_available: "online"
   payload_not_available: "offline"
   icon: mdi:server
@@ -41,7 +40,23 @@
   icon: mdi:fire
   availability_topic: /unipi/tele/LWT
 - platform: mqtt
+  name: "Chauffage Salle de Douche"
+  command_topic: "/unipi/cmnd/SalleDeBain/chauffageElec/POWER"
+  state_topic: "/unipi/stat/SalleDeBain/chauffageElec/POWER"
+  retain: true
+  icon: mdi:fire
+- platform: mqtt
   name: "Grasse mat'"
   command_topic: "/jarvis/cmnd/chambre/grasseMatinee/STATUS"
   state_topic: "/jarvis/stat/chambre/grasseMatinee/STATUS"
   icon: mdi:alarm-check
+- platform: mqtt
+  name: "Disable Unifi Console data gathering"
+  command_topic: "/jarvis/cmnd/mgmt/disableUnifiConsole"
+  state_topic: "/jarvis/stat/mgmt/disableUnifiConsole"
+  retain: true
+- platform: mqtt
+  name: "Disable PIR under bureau"
+  command_topic: "/jarvis/cmnd/mgmt/disablePIRUnderBureau"
+  state_topic: "/jarvis/stat/mgmt/disablePIRUnderBureau"
+  retain: true

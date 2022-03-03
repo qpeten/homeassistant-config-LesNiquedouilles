@@ -109,6 +109,10 @@
 - platform: mqtt
   name : "Toilette"
   state_topic: "/unipi/stat/toilette/ceilingLight/POWER"
+  brightness_command_topic: "/sonoff/cmnd/toilette/lampe/dimmer"
+  brightness_state_topic: "/sonoff/stat/toilette/lampe/dimmer"
+  brightness_scale: 100
+  brightness_value_template: "{{ value_json.Dimmer }}"
   command_topic: "/unipi/cmnd/toilette/ceilingLight/POWER"
   availability_topic: /unipi/tele/LWT
 - platform: mqtt

@@ -23,13 +23,14 @@ scene_salon:
     - Manual
   initial: Normal
 aspirateur_robot_salon_status:
-  name: "État"
+  name: "Osvaldo"
   options:
     - Base
     - Vider bac
     - Nettoyer tout
     - Nettoyer table manger
     - Nettoyer cuisine
+    - Nettoyer couloir
   initial: Base
   icon: mdi:robot-vacuum
 mode_presence:
