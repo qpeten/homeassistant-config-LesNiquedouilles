@@ -60,3 +60,23 @@
   command_topic: "/jarvis/cmnd/mgmt/disablePIRUnderBureau"
   state_topic: "/jarvis/stat/mgmt/disablePIRUnderBureau"
   retain: true
+- platform: mqtt
+  name: "Poubelles blanc & bleu"
+  command_topic: "/jarvis/cmnd/mgmt/poubelles_bleu"
+  state_topic: "/jarvis/stat/mgmt/poubelles_bleu"
+  retain: true
+- platform: mqtt
+  name: "Poubelles blanc & jaune"
+  command_topic: "/jarvis/cmnd/mgmt/poubelles_jaune"
+  state_topic: "/jarvis/stat/mgmt/poubelles_jaune"
+  retain: true
+- platform: mqtt
+  name: "Poubelles orange"
+  command_topic: "/jarvis/cmnd/mgmt/poubelles_orange"
+  state_topic: "/jarvis/stat/mgmt/poubelles_orange"
+  retain: true
+- platform: mqtt
+  name: "Vider lave-linge"
+  command_topic: "/jarvis/cmnd/mgmt/vider_lave_linge"
+  state_topic: "/jarvis/stat/mgmt/vider_lave_linge"
+  retain: true
