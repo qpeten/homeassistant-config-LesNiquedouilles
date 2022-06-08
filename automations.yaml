@@ -149,7 +149,7 @@
       topic: "valetudo/osvaldo/GoToLocationCapability/go/set"
       payload: >
           {% if is_state('input_select.aspirateur_robot_salon_status','Vider bac') %}
-            2f32601e-82e3-45e5-a319-4451f9a69047
+            '{"action": "goto", "coordinates": {"x": 2739,"y": 2616}}'
           {% endif %}
 - alias: mqtt_out_aspirateur_robot_salon_status_zones
   initial_state: 'on'
