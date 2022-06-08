@@ -67,6 +67,13 @@
   payload_available: "Online"
   payload_not_available: "Offline"
 - platform: mqtt
+  name : "Bureau Qt"
+  command_topic: "/sonoff/cmnd/bureau/lampeQuentin/POWER"
+  state_topic: "/sonoff/stat/bureau/lampeQuentin/POWER"
+  availability_topic: "/sonoff/tele/bureau/lampeQuentin/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+- platform: mqtt
   name : "Hall"
   state_topic: "/unipi/stat/hall/ceilingLight/POWER"
   command_topic: "/unipi/cmnd/hall/ceilingLight/POWER"

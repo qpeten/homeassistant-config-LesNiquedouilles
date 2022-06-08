@@ -14,6 +14,8 @@ light.petite_lampe:
    icon: mdi:lamp
 light.bureau_pao:
    icon: mdi:desk-lamp
+light.bureau_qt:
+   icon: mdi:desk-lamp
 light.hall:
   icon: mdi:ceiling-light
 light.table_salon:
