@@ -3,13 +3,11 @@
   state_topic: "/jarvis/binary_sensor/other/Presence_Quentin_Unifi"
   device_class: "presence"
   force_update: true
-  availability_topic: /unipi/tele/LWT
 - platform: mqtt
   name: "Presence Paola"
   state_topic: "/jarvis/binary_sensor/other/Presence_Paola_Unifi"
   device_class: "presence"
   force_update: true
-  availability_topic: /unipi/tele/LWT
 - platform: mqtt
   name: "Presence Anyone"
   state_topic: "/jarvis/binary_sensor/other/Presence_Anyone"
@@ -22,6 +20,14 @@
   device_class: "presence"
   force_update: true
   availability_topic: /unipi/tele/LWT
+- platform: mqtt
+  name: "Presence Bureau mmWave"
+  state_topic: "/sonoff/stat/bureau/mmwave/presence"
+  device_class: "presence"
+  force_update: true
+  availability_topic: /sonoff/tele/bureau/mmwave/LWT
+  payload_available: "Online"
+  payload_not_available: "Offline"
 - platform: mqtt
   name: "Presence Bureau Paola"
   state_topic: "/jarvis/binary_sensor/bureau/Presence_Bureau_Paola"
